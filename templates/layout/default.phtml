@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title><?= $title ?></title>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Anderson Luciano Desenvolvedor Web"/>
+    <meta name="keywords" content="web developer, programador php, marilia, são paulo"/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="Googlebot" content="index,follow"/>
+    <meta name="geo.region" content="BR-SP"/>
+    <meta name="geo.placename" content="Marília - SP"/>
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/assets/materialize/css/materialize.min.css">
+
+    <style>
+        @font-face {
+            font-family: "MyName";
+            src: url("/assets/fonts/appleberry/appleberry.ttf") ;
+        }
+
+        @font-face {
+            font-family: "ProHandy";
+            src: url("/assets/fonts/prohandy/Prohandy Regular.otf") ;
+        }
+
+        header, main, footer {
+            padding-left: 300px;
+        }
+
+        @media only screen and (max-width: 992px) {
+            header, main, footer {
+                padding-left: 0;
+            }
+
+            .profile-pic {
+                width: 147px !important;
+                margin-left: 5% !important;
+                margin-top: 2% !important;
+            }
+
+        }
+
+        body {
+            background: url("/assets/images/background.png") repeat;
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <?= $this->section('stylesheets') ?>
+</head>
+
+<body>
+<?= $this->section('content') ?>
+</body>
+
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+
+
+<?= $this->section('javascript') ?>
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</html>
