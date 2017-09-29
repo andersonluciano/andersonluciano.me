@@ -363,23 +363,23 @@
                         </div>
                     </div>
 
-                    <form id="form-contact" action="#" method="post" class="col s12">
+                    <form id="form-contact" action="#form-contact" method="post" class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Mr Anderson!" name="name" id="first_name" type="text" class="validate" value="<?= array_key_exists("name", $params) ? $params['name'] : "" ?>">
-                                <label for="first_name">You Name</label>
+                                <input placeholder="Mr Anderson!" id="name" name="name" type="text" class="validate" value="<?= array_key_exists("name", $params) ? $params['name'] : "" ?>">
+                                <label for="name">You Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="email" type="email" name="email" class="validate" placeholder="andersonluciano.dev@gmail.com" value="<?= array_key_exists("email", $params) ? $params['email'] : "" ?>">
+                                <input placeholder="andersonluciano.dev@gmail.com" id="email" name="email" type="email" class="validate" value="<?= array_key_exists("email", $params) ? $params['email'] : "" ?>">
                                 <label for="email">You Email</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="textarea1" name="message" class="materialize-textarea" placeholder="Feel free!"><?= array_key_exists("message", $params) ? $params['message'] : "" ?></textarea>
-                                <label for="textarea1">Your message</label>
+                                <textarea id="message" name="message" class="materialize-textarea" placeholder="Feel free!"><?= array_key_exists("message", $params) ? $params['message'] : "" ?></textarea>
+                                <label for="message">Your message</label>
                             </div>
                         </div>
                         <div class="row">
@@ -390,18 +390,18 @@
                         <?php
                         if ($params['messageResponse'] != "") {
                             ?>
-                            <div class="row"><p><?= $params['messageResponse'] ?></p></div>
+                            <div class="card-panel teal lighten-2"><?= $params['messageResponse'] ?></div>
                             <?php
                         }
                         if ($params['exception'] != "") {
                             ?>
-                            <div class="row"><p><?= $params['exception'] ?></p></div>
+                            <div class="card-panel red lighten-5"><?= $params['exception'] ?></div>
                             <?php
                         }
                         ?>
                         <div class="row">
                             <div class="col s12">
-                                <button type="submit" class="waves-effect waves-light btn  deep-orange lighten-1"><i class="fa fa-check"></i> Send</button>
+                                <button id="btn-submit" type="button" class="waves-effect waves-light btn  deep-orange lighten-1"><i class="fa fa-check"></i> Send</button>
                             </div>
                         </div>
                     </form>
@@ -434,6 +434,18 @@
     <div class="footer-copyright">
         <div class="container">
             <p class="grey-text text-darken-3 jesus">Jesus is the savior!</p>
+<!--            Yess He is!                                                                                     -->
+<!--            John 3:16-18                                                                                    -->
+<!--            ------------                                                                                    -->
+<!--            16 For God so loved the world, that he gave his only begotten Son,                              -->
+<!--            that whosoever believeth in him should not perish, but have everlasting life.                   -->
+<!--            17 For God sent not his Son into the world to condemn the world; but that                       -->
+<!--            the world through him might be saved.                                                           -->
+<!--                                  ---------------                                                           -->
+<!--            18 He that believeth on him is not condemned: but he that believeth not is                      -->
+<!--            condemned already, because he hath not believed in the name of the only begotten Son of God.    -->
+<!--            --------------------------------------------------------------------------------------------    -->
+<!--            Jesus is life, Jesus is salvation, come to Jesus!                                               -->
         </div>
     </div>
 </footer>
@@ -444,6 +456,27 @@
         $('.button-collapse').sideNav();
         $('.parallax').parallax();
         $('.materialboxed').materialbox();
+
+
+        $("#btn-submit").click(function () {
+            if ($("#name").val() == "") {
+                Materialize.toast('Please tell me your name :)', 4000);
+                $("#name").focus();
+                return false;
+            }
+            if ($("#email").val() == "") {
+                Materialize.toast('Please tell me your email :)', 4000);
+                $("#email").focus();
+                return false;
+            }
+            if ($("#message").val() == "") {
+                Materialize.toast('OMG, you do not want to say anything? :O', 4000);
+                $("#message").focus();
+                return false;
+            }
+
+            $(this).parents("form").submit();
+        });
     });
 </script>
 
